@@ -1,0 +1,51 @@
+name:                persistent-cascading-deletes
+version:             0.1.0.0
+github:              "jonathanknowles/persistent-cascading-deletes"
+license:             BSD3
+author:              "Jonathan Knowles"
+maintainer:          "mail@jonathanknowles.net"
+copyright:           "Jonathan Knowles"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jonathanknowles/persistent-cascading-deletes#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- persistent
+- persistent-sqlite
+- persistent-template
+
+library:
+  source-dirs: src
+
+executables:
+  persistent-cascading-deletes-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - persistent-cascading-deletes
+
+tests:
+  persistent-cascading-deletes-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - persistent-cascading-deletes
